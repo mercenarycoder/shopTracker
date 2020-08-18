@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:background="#fff"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Enter credit to be reduced"
+    android:textSize="18sp"
+    android:textColor="#000"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="14sp"
+        android:textColor="#545454"
+        android:textColorHint="#545454"
+        android:hint=" Credit Points"
+        android:background="@drawable/edit_text"
+        android:maxLines="1"
+        android:layout_gravity="center"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="0dp"
+        android:textColorHighlight="#fff"
+        android:fontFamily="@font/montserratalternates_medium"
+        android:layout_height="50dp"
+        android:id="@+id/point"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:id="@+id/confirm"
+            android:layout_marginBottom="15dp"
+            android:text="Confirm"
+            android:textSize="14sp"
+            android:background="@drawable/btn1"
+            android:textColor="#fff"/>
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:textSize="14sp"
+            android:id="@+id/cancel"
+            android:background="@drawable/btn1"
+            android:text="Cancel"
+            android:textColor="#fff"/>
+    </LinearLayout>
+</LinearLayout>

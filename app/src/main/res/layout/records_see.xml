@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:id="@+id/mainlayout"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:focusable="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:background="@drawable/edit_text">
+
+        <EditText
+            android:id="@+id/search_key"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.19"
+            android:backgroundTint="#fff"
+            android:fontFamily="@font/montserratalternates_medium"
+            android:hint="Search key"
+            android:maxLines="1"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHighlight="#fff"
+            android:textColorHint="@color/colorAccent" />
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/search"
+            android:layout_weight="1"
+            android:id="@+id/now_search"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:tint="@color/colorPrimary"
+            />
+    </LinearLayout>
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/refresh">
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/records"/>
+  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>
