@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.developer.couponcode">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_admin"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_admin"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Admin.EditTransaction"></activity>
+        <activity android:name=".Admin.adminActivity" />
+        <activity android:name=".User.userActivity" />
+        <activity android:name=".Admin.Admin_Login" />
+        <activity android:name=".User.LoginUser" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

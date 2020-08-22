@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "876136648303",
+    "firebase_url": "https://coupon-code-56718.firebaseio.com",
+    "project_id": "coupon-code-56718",
+    "storage_bucket": "coupon-code-56718.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876136648303:android:9eecd3bd1e278a2f2a079a",
+        "android_client_info": {
+          "package_name": "com.developer.couponcode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876136648303-5uhshkhc7cms81ha5f442jvt2n24qp9k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.developer.couponcode",
+            "certificate_hash": "94ef8829b159abeb7f19f54816d818006702bb51"
+          }
+        },
+        {
+          "client_id": "876136648303-991obi6u85k6tmvcd3iulckni7aqr1pd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA48Vx73bUf4Dm7KhDk6qWgrZduOR5_mmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876136648303-991obi6u85k6tmvcd3iulckni7aqr1pd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

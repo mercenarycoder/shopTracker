@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:gravity="center"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/ic_owl"
+        android:tint="#B58134"/>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:id="@+id/login"
+        android:layout_marginBottom="15dp"
+        android:text="Login"
+        android:background="@drawable/btn1"
+        android:textColor="#fff"/>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:id="@+id/login_admin"
+        android:background="@drawable/btn1"
+        android:text="Login As Admin"
+        android:textColor="#fff"/>
+</LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:layout_height="match_parent"
+    tools:context=".Admin.adminActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#fff"
+        android:layout_centerHorizontal="true"
+        android:baselineAligned="false"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_admin"
+            android:visibility="visible"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/main_base_btn"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Sunil Sharma"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="#000"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"/>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_notification"
+            android:background="@drawable/dark_btn"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="S"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:layout_marginTop="3dp"
+            android:visibility="invisible"
+            android:textSize="20sp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/round_btn"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Logout"
+            android:id="@+id/logout"
+            android:visibility="visible"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            android:textSize="11sp"
+            android:textColor="#fff"
+            android:background="@drawable/dark_btn"/>
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_alignParentBottom="true"
+    android:layout_marginTop="64dp"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Insert A Record"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:id="@+id/insert"
+        android:textSize="12sp"
+        android:textColor="#fff"
+        android:background="#333333"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="See All"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:id="@+id/see_all"
+        android:textSize="12sp"
+        android:textColor="#fff"
+        android:background="#333333"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="All Users"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:id="@+id/all"
+        android:textSize="12sp"
+        android:textColor="#fff"
+        android:background="#333333"/>
+</LinearLayout>
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginBottom="43dp"
+      android:layout_marginTop="70dp"
+      android:background="#000"
+      android:id="@+id/frame_base"/>
+</RelativeLayout>
