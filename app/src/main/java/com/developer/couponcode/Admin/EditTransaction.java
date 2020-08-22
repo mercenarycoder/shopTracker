@@ -113,8 +113,25 @@ String name2,phone2,price2,refferal2,description2,rate2,key;
     public void formOptions()
     {
         list=new ArrayList<>();
+        list.add(new SpinnerClass("1","1 %"));
+        list.add(new SpinnerClass("2","2 %"));
+        list.add(new SpinnerClass("3","3 %"));
+        list.add(new SpinnerClass("4","4 %"));
         list.add(new SpinnerClass("5","5 %"));
+        list.add(new SpinnerClass("6","6 %"));
+        list.add(new SpinnerClass("7","7 %"));
+        list.add(new SpinnerClass("8","8 %"));
+        list.add(new SpinnerClass("9","9 %"));
         list.add(new SpinnerClass("10","10 %"));
+        list.add(new SpinnerClass("11","11 %"));
+        list.add(new SpinnerClass("12","12 %"));
+        list.add(new SpinnerClass("13","13 %"));
+        list.add(new SpinnerClass("14","14 %"));
         list.add(new SpinnerClass("15","15 %"));
+        list.add(new SpinnerClass("16","16 %"));
+        list.add(new SpinnerClass("17","17 %"));
+        list.add(new SpinnerClass("18","18 %"));
+        list.add(new SpinnerClass("19","19 %"));
+        list.add(new SpinnerClass("20","20 %"));
     }
 }
