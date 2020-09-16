@@ -1,7 +1,9 @@
 package com.developer.couponcode.Admin;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.developer.couponcode.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -81,9 +85,8 @@ public class AdminBasic extends Fragment {
                      myCalendar.set(Calendar.YEAR, year);
                      myCalendar.set(Calendar.MONTH, monthOfYear);
                      myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                     String myFormat = "MM/dd/yy"; //In which you need put here
+                     String myFormat = "dd-MM-yyyy"; //In which you need put here
                      SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
                     date.setText(sdf.format(myCalendar.getTime()));
                  }
              };
@@ -142,8 +145,27 @@ public class AdminBasic extends Fragment {
     {
         adminEntry entry=new adminEntry(nameS,phoneS,refferalS,priceS,descriptionS,rateS);
         String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        currentDate=date.getText().toString();
         String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
         reference.child("records").child(currentDate+"_"+currentTime).setValue(entry);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Information")
+                .setMessage("Record is inserted successfully")
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                })
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(context,"Action cancelled",Toast.LENGTH_SHORT).show();
+                        //builder.
+                    }
+                });
+        builder.create();
+        builder.show();
         name.setText("");
         phone.setText("");
         purchase.setText("");

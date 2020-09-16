@@ -37,6 +37,7 @@ public class AllTransactionFragment extends Fragment{
     TextView not_found;
     ProgressDialog progressDialog;
     FirebaseAuth mauth;
+    ArrayList<String> keys;
     DatabaseReference reference;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,6 +79,7 @@ public class AllTransactionFragment extends Fragment{
         @Override
         protected String doInBackground(String... strings) {
             list=new ArrayList<>();
+            keys=new ArrayList<>();
             ValueEventListener listner=new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -88,10 +90,11 @@ public class AllTransactionFragment extends Fragment{
                         userEntry entry=postSnapshot.getValue(userEntry.class);
                        if(mauth.getCurrentUser().getPhoneNumber().contains(entry.getRefferal()))
                         list.add(entry);
+                       keys.add(name);
                         // System.out.println("-------------------------------"+entry.getPhone());
                     }
                     progressDialog.dismiss();
-                    adapter=new UserAdapter(list,context);
+                    adapter=new UserAdapter(list,context,keys);
                     users.setLayoutManager(new LinearLayoutManager(context));
                     users.setHasFixedSize(true);
                     users.setAdapter(adapter);

@@ -116,11 +116,11 @@ public class RecordSeeAdmin extends Fragment {
 
         @Override
         protected String doInBackground(String... strings) {
-            list=new ArrayList<>();
-            keys=new ArrayList<>();
             ValueEventListener listner=new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    list=new ArrayList<>();
+                    keys=new ArrayList<>();
                     for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                         // TODO: handle the post
                         String name=postSnapshot.getKey().toString();

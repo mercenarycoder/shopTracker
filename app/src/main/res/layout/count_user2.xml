@@ -62,19 +62,4 @@
             android:textSize="15sp"
             />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="right"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="30dp"
-            android:text="Edit"
-            android:layout_marginRight="12dp"
-            android:textColor="#fff"
-            android:id="@+id/edit"
-            android:background="@drawable/dark_btn"/>
-    </LinearLayout>
 </LinearLayout>

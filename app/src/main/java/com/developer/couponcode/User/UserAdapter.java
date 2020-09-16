@@ -24,9 +24,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewholder1>{
     int cats[];
     int anchor[];
     int i=4;
-    public UserAdapter(ArrayList<userEntry> list, Context context)
+    ArrayList<String> keys;
+    public UserAdapter(ArrayList<userEntry> list, Context context,ArrayList<String> keys)
     {
         this.list=list;
+        this.keys=keys;
         this.context=context;
 
     }
@@ -43,7 +45,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewholder1>{
     @Override
     public void onBindViewHolder(@NonNull final viewholder1 holder, final int position) {
         final userEntry adapter=list.get(position);
-        holder.date.setText("08/08/2020");
+        String date2[]=keys.get(position).split("_");
+        holder.date.setText(date2[0]);
+       // holder.date.setText("08/08/2020");
         //  holder.description.setText("Description :-"+adapter.getDecription());
         holder.refferal.setText(adapter.getRefferal());
         holder.phone.setText(adapter.getPhone());

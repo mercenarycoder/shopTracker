@@ -20,10 +20,15 @@ import android.widget.Toast;
 
 import com.developer.couponcode.Admin.Users;
 import com.developer.couponcode.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -72,7 +77,7 @@ public class AllUserAdapter extends RecyclerView.Adapter<AllUserAdapter.viewhold
                     public void onClick(View view) {
                         String str=point.getText().toString();
                         String key=users.get(position);
-                        modifyCredit(adapter.getPoints(),adapter.getMinus(),str,key);
+                        modifyCredit(adapter.getPoints(),adapter.getMinus(),str,key,adapter.getNumber());
                         dialog.dismiss();
                     }
                 });
@@ -101,7 +106,7 @@ public class AllUserAdapter extends RecyclerView.Adapter<AllUserAdapter.viewhold
                     public void onClick(View view) {
                         String str=point.getText().toString();
                         String key=users.get(position);
-                        modifyCredit(adapter.getPoints(),adapter.getMinus(),str,key);
+                        modifyCredit(adapter.getPoints(),adapter.getMinus(),str,key,adapter.getNumber());
                         dialog.dismiss();
                     }
                 });
@@ -116,7 +121,7 @@ public class AllUserAdapter extends RecyclerView.Adapter<AllUserAdapter.viewhold
             }
         });
     }
-    public void modifyCredit(String point,String minus,String str,String key)
+    public void modifyCredit(String point,String minus,String str,String key,String phn)
     {
     int p=Integer.parseInt(point);
     int cut=Integer.parseInt(str);
@@ -131,7 +136,8 @@ public class AllUserAdapter extends RecyclerView.Adapter<AllUserAdapter.viewhold
         cut+=add;
     }
     reference.child("users").child(key).child("minus").setValue(cut);
-    Toast.makeText(context,"value modified",Toast.LENGTH_SHORT).show();
+    addTransaction(phn,String.valueOf(str));
+    Toast.makeText(context,String.valueOf(str),Toast.LENGTH_SHORT).show();
     }
     @Override
     public int getItemCount() {
@@ -149,6 +155,23 @@ public class AllUserAdapter extends RecyclerView.Adapter<AllUserAdapter.viewhold
             pres=(LinearLayout)itemView.findViewById(R.id.pres);
             edit=(Button)itemView.findViewById(R.id.edit);
         }
+    }
+    public void addTransaction(String phn,String minus)
+    {
+        Date currentTime = Calendar.getInstance().getTime();
+        String key=String.valueOf(currentTime);
+        transaction see=new transaction(phn,minus);
+        reference.child("transactions").child(key).setValue(see).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+           Toast.makeText(context,"Transaction added to histry",Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(context,"Transaction failed",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     public void setProgress()
     {

@@ -1,8 +1,10 @@
 package com.developer.couponcode.Admin;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -48,16 +50,15 @@ String name2,phone2,price2,refferal2,description2,rate2,key;
         description2=intent.getStringExtra("description");
         rate2=intent.getStringExtra("rate");
         key=intent.getStringExtra("key");
-        if(rate2.equals("5"))
+        String date2[]=key.split("_");
+        date.setText(date2[0]);
+        for(int i=0;i<20;i++)
         {
-            rates.setSelection(0);
-        }
-        else if(rate2.equals("10"))
-        {
-            rates.setSelection(1);
-        }
-        else {
-            rates.setSelection(2);
+            if(rate2.equals(String.valueOf(i+1)))
+            {
+              //  Toast.makeText(context,rate2,Toast.LENGTH_SHORT).show();
+                rates.setSelection(i);
+            }
         }
         key=intent.getStringExtra("key");
         name.setText(name2);
@@ -73,8 +74,25 @@ String name2,phone2,price2,refferal2,description2,rate2,key;
             price2=price.getText().toString();
             refferal2=refferal.getText().toString();
             description2=description.getText().toString();
-            reference.child("records").child(key).setValue(new adminEntry(name2,phone2,refferal2,price2,description2,rate2));
-            finish();
+                final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Information")
+                        .setMessage("Are you sure you want to update the transaction record")
+                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                 reference.child("records").child(key).setValue(new adminEntry(name2,phone2,refferal2,price2,description2,rate2));
+                 finish();
+                            }
+                        })
+                        .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(context,"Action cancelled",Toast.LENGTH_SHORT).show();
+                                //builder.
+                            }
+                        });
+                builder.create();
+                builder.show();
             }
         });
         close.setOnClickListener(new View.OnClickListener() {

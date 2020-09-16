@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 
 import com.developer.couponcode.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -51,7 +53,8 @@ public class dashboard2 extends RecyclerView.Adapter<dashboard2.viewholder1>{
     @Override
     public void onBindViewHolder(@NonNull final viewholder1 holder, final int position) {
         final adminEntry adapter=list.get(position);
-        holder.date.setText("08/08/2020");
+        String date2[]=keys.get(position).split("_");
+        holder.date.setText(date2[0]);
       //  holder.description.setText("Description :-"+adapter.getDecription());
         holder.refferal.setText(adapter.getRefferal());
         holder.phone.setText(adapter.getPhone());
@@ -64,7 +67,7 @@ public class dashboard2 extends RecyclerView.Adapter<dashboard2.viewholder1>{
             intent.putExtra("name",adapter.getName());
             intent.putExtra("phone",adapter.getPhone());
             intent.putExtra("price",adapter.getPrice());
-            intent.putExtra("rate","5");
+            intent.putExtra("rate",adapter.getRate());
             intent.putExtra("refferal",adapter.getRefferal());
             intent.putExtra("description",adapter.getDecription());
             intent.putExtra("key",keys.get(position));
@@ -81,10 +84,14 @@ public class dashboard2 extends RecyclerView.Adapter<dashboard2.viewholder1>{
                         .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                reference.child("records").child(keys.get(position)).removeValue();
-                                list.remove(position);
-                                notifyItemRemoved(position);
-                                notifyItemRangeChanged(position,list.size());
+                                reference.child("records").child(keys.get(position)).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        list.remove(position);
+                                        notifyItemRemoved(position);
+                                        notifyItemRangeChanged(position,list.size());
+                                    }
+                                });
                             }
                         })
                         .setNegativeButton("cancel", new DialogInterface.OnClickListener() {

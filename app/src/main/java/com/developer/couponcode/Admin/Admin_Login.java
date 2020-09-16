@@ -33,7 +33,7 @@ SharedPreferences.Editor editor;
             public void onClick(View view) {
              em=email.getText().toString();
              ps=password.getText().toString();
-             if(em.equals("root")&&ps.equals("root")) {
+             if(em.equals("sunil.sharma20101981@gmail.com")&&ps.equals("sunil@2020")) {
                  Intent intent = new Intent(Admin_Login.this, adminActivity.class);
                  editor.putString("login","true");
                  editor.apply();
