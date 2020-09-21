@@ -47,7 +47,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewholder1>{
         final userEntry adapter=list.get(position);
         String date2[]=keys.get(position).split("_");
         holder.date.setText(date2[0]);
-       // holder.date.setText("08/08/2020");
+       //vpjnlk
+        // holder.date.setText("08/08/2020");
         //  holder.description.setText("Description :-"+adapter.getDecription());
         holder.refferal.setText(adapter.getRefferal());
         holder.phone.setText(adapter.getPhone());
